@@ -7,7 +7,9 @@ MAINTAINER Bertrand Chazot <bertrand@bittorrent.com>
 LABEL com.getsync.version="2.3.1"
 
 ADD https://download-cdn.getsync.com/2.3.1/linux-x64/BitTorrent-Sync_x64.tar.gz /tmp/sync.tgz
-RUN tar -xf /tmp/sync.tgz -C /usr/sbin btsync && rm -f /tmp/sync.tgz
+RUN echo -n "2098169b993e30d0848acc29822d6c6bda045eedb9de2192d3f94b69bcf3bf9d  /tmp/sync.tgz" | sha256sum -c \
+    && tar -xzf /tmp/sync.tgz -C /usr/sbin btsync \
+    && rm -f /tmp/sync.tgz
 
 COPY btsync.conf /etc/
 COPY run_sync /opt/
