@@ -4,10 +4,10 @@
 
 FROM ubuntu:15.04
 MAINTAINER Bertrand Chazot <bertrand@bittorrent.com>
-LABEL com.getsync.version="2.3.1"
+LABEL com.getsync.version="2.3.3"
 
-ADD https://download-cdn.getsync.com/2.3.1/linux-x64/BitTorrent-Sync_x64.tar.gz /tmp/sync.tgz
-RUN echo -n "2098169b993e30d0848acc29822d6c6bda045eedb9de2192d3f94b69bcf3bf9d  /tmp/sync.tgz" | sha256sum -c \
+ADD https://download-cdn.getsync.com/2.3.3/linux-x64/BitTorrent-Sync_x64.tar.gz /tmp/sync.tgz
+RUN echo -n "961c87c1bb3a166c85bb3254b1c2ac477167dc8271be92321b71c4d3bc13df50  /tmp/sync.tgz" | sha256sum -c \
     && tar -xzf /tmp/sync.tgz -C /usr/sbin btsync \
     && rm -f /tmp/sync.tgz
 
