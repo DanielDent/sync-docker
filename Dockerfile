@@ -1,13 +1,9 @@
-# BitTorrent Sync
-#
-# VERSION               0.1
+FROM danieldent/debian-base
+MAINTAINER Daniel Dent (https://www.danieldent.com/)
+LABEL com.getsync.version="2.3.8"
 
-FROM ubuntu:15.04
-MAINTAINER Bertrand Chazot <bertrand@bittorrent.com>
-LABEL com.getsync.version="2.3.3"
-
-ADD https://download-cdn.getsync.com/2.3.3/linux-x64/BitTorrent-Sync_x64.tar.gz /tmp/sync.tgz
-RUN echo -n "961c87c1bb3a166c85bb3254b1c2ac477167dc8271be92321b71c4d3bc13df50  /tmp/sync.tgz" | sha256sum -c \
+ADD https://download-cdn.getsync.com/2.3.8/linux-x64/BitTorrent-Sync_x64.tar.gz /tmp/sync.tgz
+RUN echo -n "9e1a63d7e346278f7301f149626013242a3c605db90a645ebe757c164cd1c50a  /tmp/sync.tgz" | sha256sum -c \
     && tar -xzf /tmp/sync.tgz -C /usr/sbin btsync \
     && rm -f /tmp/sync.tgz
 
